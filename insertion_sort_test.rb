@@ -29,6 +29,16 @@ class InsertionTest < Minitest::Test
     assert_equal [7], sorter.sort
   end
 
+  def test_it_adds_the_second_element_in_the_right_place_if_greater
+    sorter = InsertionSort.new([2,7])
+    assert_equal [2,7], sorter.sort
+  end
+
+  def test_it_adds_the_second_element_in_the_right_place_if_less_than
+    sorter = InsertionSort.new([2,1])
+    assert_equal [1,2], sorter.sort
+  end
+
   def test_it_sorts_a_sorted_array_of_two
     sorter = InsertionSort.new([2,7])
     assert_equal [2,7], sorter.sort
@@ -42,6 +52,21 @@ class InsertionTest < Minitest::Test
   def test_it_sorts_an_unsorted_array_of_two
     sorter = InsertionSort.new([7,2])
     assert_equal [2,7], sorter.sort
+  end
+
+  def test_it_sorts_an_unsorted_array_of_two_strings
+    sorter = InsertionSort.new(["gus","baloney"])
+    assert_equal ["baloney","gus"], sorter.sort
+  end
+
+  def test_it_sorts_an_array_of_either_two_or_three_strings
+    sorter = InsertionSort.new([1,4,3])
+    assert_equal [1,3,4], sorter.sort
+  end
+
+  def test_it_sorts_an_array_of_either_two_or_three_strings_alt
+    sorter = InsertionSort.new([1,4])
+    assert_equal [1,4], sorter.sort
   end
 
   def test_it_sorts_a_sorted_array_of_three
@@ -64,43 +89,52 @@ class InsertionTest < Minitest::Test
     assert_equal [2,3,7], sorter.sort
   end
 
-  # def test_it_sorts_an_unsorted_array_of_four_1723
-  #   sorter = InsertionSort.new([1,7,2,3])
-  #   assert_equal [1,2,3,7], sorter.sort
-  # end
-  # def test_it_sorts_an_unsorted_array_of_four_7132
-  #   sorter = InsertionSort.new([7,1,3,2])
-  #   assert_equal [1,2,3,7], sorter.sort
-  # end
-  # def test_it_sorts_an_unsorted_array_of_four_3271
-  #   sorter = InsertionSort.new([3,2,7,1])
-  #   assert_equal [1,2,3,7], sorter.sort
-  # end
+  def test_it_captures_initial_unsorted_arrays_length
+    sorter = InsertionSort.new([3,2,7])
+    assert_equal 3, sorter.array_length
+  end
 
-  # def test_it_sorts_an_unsorted_array_of_four_7213
-  #   sorter = InsertionSort.new([7,2,1,3])
-  #   assert_equal [1,2,3,7], sorter.sort
-  # end
-  # def test_it_sorts_an_unsorted_array_of_four_7231
-  #   sorter = InsertionSort.new([7,2,3,1])
-  #   assert_equal [1,2,3,7], sorter.sort
-  # end
-  # def test_it_sorts_an_unsorted_array_of_four_3127
-  #   sorter = InsertionSort.new([3,1,2,7])
-  #   assert_equal [1,2,3,7], sorter.sort
-  # end
-  # def test_it_sorts_an_unsorted_array_of_four_3217
-  #
-  #   sorter = InsertionSort.new([3,2,1,7])
-  #   assert_equal [1,2,3,7], sorter.sort
-  # end
+  def test_it_sorts_an_unsorted_array_of_four_1723
+    sorter = InsertionSort.new([1,7,2,3])
+    assert_equal [1,2,3,7], sorter.sort
+  end
+
+  def test_it_sorts_an_unsorted_array_of_four_7132
+    sorter = InsertionSort.new([7,1,3,2])
+    assert_equal [1,2,3,7], sorter.sort
+  end
+
+  def test_it_sorts_an_unsorted_array_of_four_3271
+    sorter = InsertionSort.new([3,2,7,1])
+    assert_equal [1,2,3,7], sorter.sort
+  end
+
+  def test_it_sorts_an_unsorted_array_of_four_7213
+    sorter = InsertionSort.new([7,2,1,3])
+    assert_equal [1,2,3,7], sorter.sort
+  end
+
+  def test_it_sorts_an_unsorted_array_of_four_7231
+    sorter = InsertionSort.new([7,2,3,1])
+    assert_equal [1,2,3,7], sorter.sort
+  end
+
+  def test_it_sorts_an_unsorted_array_of_four_3127
+    sorter = InsertionSort.new([3,1,2,7])
+    assert_equal [1,2,3,7], sorter.sort
+  end
+
+  def test_it_sorts_an_unsorted_array_of_four_3217
+    sorter = InsertionSort.new([3,2,1,7])
+    assert_equal [1,2,3,7], sorter.sort
+  end
 
   # FRING ISSUES #
-    def test_it_sorts_an_empty_array # REWRITE : if there's no argument passed at all
-      skip
-    end
-
-    def test_it_sorts_an_array_of_strings_and_integers # REWRITE : if there's no argument passed at all
-      skip
-    end
+    # def test_it_sorts_an_empty_array # REWRITE : if there's no argument passed at all
+    #   skip
+    # end
+    #
+    # def test_it_sorts_an_array_of_strings_and_integers # REWRITE : if there's no argument passed at all
+    #   skip
+    # end
 end

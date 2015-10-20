@@ -27,7 +27,7 @@ class BubbleSort
       else @array[0] > @array[1]
         switch
       end
-    elsif @array.length == 3         #5,7,10,8
+    elsif @array.length == 3 
       if @array[0] < @array[1] and @array [1]< @array[2]
         @array
       else
